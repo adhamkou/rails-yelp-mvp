@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%# why needs @ and why we do not need to make it ''%>
+<%= render @restaurant %>
+
+<p><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %></p>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.content %>
+      <%= review.rating %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<div> |
+  <%= link_to "Back to restaurants", restaurants_path %>
+</div>
